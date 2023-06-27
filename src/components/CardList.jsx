@@ -15,9 +15,13 @@ const CardList = () => {
 
   return (
     <div className={styles.cardList}>
-      {users.map((user) => (
-        <Card key={user.id} title={user.name} description={user.email} />
-      ))}
+      {users.length > 1 ? (
+        users.map((user) => (
+          <Card key={user.id} title={user.name} description={user.email} />
+        ))
+      ) : (
+        <p style={{ textAlign: "center" }}>Loading...</p>
+      )}
     </div>
   );
 };
